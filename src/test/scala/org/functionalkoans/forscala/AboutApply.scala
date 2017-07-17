@@ -13,9 +13,9 @@ class AboutApply extends KoanSuite {
 
     var a = new Counter(10)
     a = a.apply(20)
-    a.seed should be(__)
+    a.seed should be(30)
     a = a(40) //Whoa! Look Ma! No apply!
-    a.seed should be(__)
+    a.seed should be(70)
   }
 
   koan(
@@ -29,9 +29,9 @@ class AboutApply extends KoanSuite {
     }
 
     val a = Employee.apply("Aleksander", "Neufied")
-    a.firstName should be(__)
+    a.firstName should be("Aleksander")
 
     val b = Employee("Jamie", "Pindar")
-    b.lastName should be(__)
+    b.lastName should be("Pindar")
   }
 }

@@ -12,13 +12,13 @@ class AboutLiteralNumbers extends KoanSuite with Matchers {
     val f = -2
     val g = -31
     val h = -0x30F
-    a should be(__)
-    b should be(__)
-    c should be(__) //Hint: 30F = 783
-    e should be(__)
-    f should be(__)
-    g should be(__)
-    h should be(__) //Hint: 30F = 783
+    a should be(2)
+    b should be(31)
+    c should be(783) //Hint: 30F = 783
+    e should be(0)
+    f should be(-2)
+    g should be(-31)
+    h should be(-783) //Hint: 30F = 783
   }
 
   koan(
@@ -32,13 +32,13 @@ class AboutLiteralNumbers extends KoanSuite with Matchers {
     val g = -31L
     val h = -0x30FL
 
-    a should be(__)
-    b should be(__)
-    c should be(__) //Hint: 30F = 783
-    e should be(__)
-    f should be(__)
-    g should be(__)
-    h should be(__) //Hint: 30F = 783
+    a should be(2L)
+    b should be(31L)
+    c should be(783L) //Hint: 30F = 783
+    e should be(0L)
+    f should be(-2L)
+    g should be(-31L)
+    h should be(-783L) //Hint: 30F = 783
   }
 
   koan(
@@ -58,14 +58,14 @@ class AboutLiteralNumbers extends KoanSuite with Matchers {
     val h = 0.0
     val i = 9.23E-9D
 
-    a should be(__)
-    b should be(__)
-    c should be(__)
-    d should be(__)
-    e should be(__)
-    f should be(__)
-    g should be(__)
-    h should be(__)
-    i should be(__)
+    a should be(3D)
+    b should be(3D)
+    c should be(2.73D)
+    d should be(3F)
+    e should be(3.22D)
+    f should be(93e-9)
+    g should be(93e-9)
+    h should be(0D)
+    i should be(9.23e-9)
   }
 }
