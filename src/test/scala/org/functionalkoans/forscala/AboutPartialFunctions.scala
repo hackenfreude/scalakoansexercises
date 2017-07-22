@@ -27,8 +27,8 @@ class AboutPartialFunctions extends KoanSuite with Matchers {
 
     val whatToDo = doubleEvens orElse tripleOdds //Here we chain the partial functions together
 
-    whatToDo(3) should be(__)
-    whatToDo(4) should be(__)
+    whatToDo(3) should be(9)
+    whatToDo(4) should be(8)
 
     //Note: Fire up a REPL and try doubleEvens(7) now!
   }
@@ -46,8 +46,8 @@ class AboutPartialFunctions extends KoanSuite with Matchers {
     }
 
     val whatToDo = doubleEvens orElse tripleOdds //Here we chain the partial functions together
-    whatToDo(3) should be(__)
-    whatToDo(4) should be(__)
+    whatToDo(3) should be(9)
+    whatToDo(4) should be(8)
 
     //Note: Fire up a REPL and try doubleEvens(7) now!
   }
@@ -66,8 +66,8 @@ class AboutPartialFunctions extends KoanSuite with Matchers {
 
     val addFive = (x: Int) => x + 5
     val whatToDo = doubleEvens orElse tripleOdds andThen addFive //Here we chain the partial functions together
-    whatToDo(3) should be(__)
-    whatToDo(4) should be(__)
+    whatToDo(3) should be(14)
+    whatToDo(4) should be(13)
   }
 
   koan(
@@ -90,8 +90,8 @@ class AboutPartialFunctions extends KoanSuite with Matchers {
 
     val whatToDo = doubleEvens orElse tripleOdds andThen (printEven orElse printOdd)
 
-    whatToDo(3) should be(__)
-    whatToDo(4) should be(__)
+    whatToDo(3) should be("Odd")
+    whatToDo(4) should be("Even")
   }
 
   koan(
@@ -104,10 +104,10 @@ class AboutPartialFunctions extends KoanSuite with Matchers {
     val director = new Director(Some(vp))
     val manager = new Manager(Some(director))
 
-    manager.processRequest(PurchaseRequest(4000, "General")) should be(__)
-    manager.processRequest(PurchaseRequest(7000, "General")) should be(__)
-    manager.processRequest(PurchaseRequest(16000, "General")) should be(__)
-    manager.processRequest(PurchaseRequest(22000, "General")) should be(__)
+    manager.processRequest(PurchaseRequest(4000, "General")) should be(Some("Manager will approve $4000.0"))
+    manager.processRequest(PurchaseRequest(7000, "General")) should be(Some("Director will approve $7000.0"))
+    manager.processRequest(PurchaseRequest(16000, "General")) should be(Some("Vice President will approve $16000.0"))
+    manager.processRequest(PurchaseRequest(22000, "General")) should be(Some("President will approve $22000.0"))
 
     val `manager pf`: PartialFunction[PurchaseRequest, String] = {
       case x if x.amount < 5000 ⇒ s"Manager will approve $$${x.amount}"
@@ -128,10 +128,10 @@ class AboutPartialFunctions extends KoanSuite with Matchers {
 
     val cor = `manager pf` orElse `director pf` orElse `vp pf` orElse `president pf`
 
-    cor(PurchaseRequest(4000, "General")) should be(__)
-    cor(PurchaseRequest(7000, "General")) should be(__)
-    cor(PurchaseRequest(16000, "General")) should be(__)
-    cor(PurchaseRequest(22000, "General")) should be(__)
+    cor(PurchaseRequest(4000, "General")) should be("Manager will approve $4000.0")
+    cor(PurchaseRequest(7000, "General")) should be("Director will approve $7000.0")
+    cor(PurchaseRequest(16000, "General")) should be("Vice President will approve $16000.0")
+    cor(PurchaseRequest(22000, "General")) should be("President will approve $22000.0")
   }
 }
 

@@ -7,7 +7,7 @@ class AboutInfixTypes extends KoanSuite with Matchers {
 
   koan(
     """We can make a type infix, meaning that the type can be displayed in complement
-           between two types in order to make a readable delaration""") {
+           between two types in order to make a readable declaration""") {
     case class Person(name: String)
     class Loves[A, B](val a: A, val b: B)
 
@@ -19,7 +19,7 @@ class AboutInfixTypes extends KoanSuite with Matchers {
     val romeo = new Person("Romeo")
     val juliet = new Person("Juliet")
 
-    announceCouple(new Loves(romeo, juliet)) should be(__)
+    announceCouple(new Loves(romeo, juliet)) should be("Romeo is in love with Juliet")
   }
 
   koan(
@@ -40,7 +40,7 @@ class AboutInfixTypes extends KoanSuite with Matchers {
     val romeo = new Person("Romeo")
     val juliet = new Person("Juliet")
 
-    announceCouple(romeo loves juliet) should be(__)
+    announceCouple(romeo loves juliet) should be("Romeo is in love with Juliet")
   }
 
 
