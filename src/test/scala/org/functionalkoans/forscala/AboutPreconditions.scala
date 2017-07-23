@@ -15,16 +15,11 @@ class AboutPreconditions extends KoanSuite {
   // Instruction: use Intercept to catch the type of exception thrown by an invalid precondition
   koan("On precondition violation, intercept expects type of exception thrown") {
     val myInstance = new WithParameterRequirement("Do you really like my hair?")
-    myInstance.myValue should be(__)
+    myInstance.myValue should be(27)
 
-    intercept[___] {
+    intercept[IllegalArgumentException] {
       //Catching the requirement exception, enter the exception in ___
       new WithParameterRequirement("")
     }
   }
 }
-
-
-
-
-	
