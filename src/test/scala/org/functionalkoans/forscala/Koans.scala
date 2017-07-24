@@ -49,7 +49,15 @@ class Koans extends Suites(
   new AboutTypeSignatures,
   new AboutTypeVariance,
   new AboutEnumerations,
-  new AboutMacros) {
+  new AboutMacros,
+  new AboutAdvancedOptions,
+  new AboutInteroperability,
+  new AboutMethodsVsFunctions,
+  new AboutPathDependentTypes,
+  new AboutPureFunctions,
+  new AboutRecursion,
+  new AboutStructuralTypes,
+  new AboutLazySequences) {
 
   override def run(testName: Option[String], args: Args) =
     if (!Master.stopRequested)
