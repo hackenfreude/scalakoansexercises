@@ -20,15 +20,15 @@ class AboutMethodsVsFunctions extends KoanSuite with Matchers {
     def add1(n: Int): Int = n + 1
     val add1f: Int ⇒ Int = n ⇒ n + 1
 
-    add1(3) should be(__)
-    add1f(3) should be(__)
+    add1(3) should be(4)
+    add1f(3) should be(4)
 
     val `add1 fn` = new Function1[Int, Int] {
       def apply(n: Int) = n + 1
     }
 
-    `add1 fn`.isInstanceOf[Int ⇒ Int] should be(__)
-    add1f.isInstanceOf[Int ⇒ Int] should be(__)
+    `add1 fn`.isInstanceOf[Int ⇒ Int] should be(true)
+    add1f.isInstanceOf[Int ⇒ Int] should be(true)
 
     /*
      * Note: open up a REPL and observe the following
@@ -48,9 +48,9 @@ class AboutMethodsVsFunctions extends KoanSuite with Matchers {
     def add1(n: Int): Int = n + 1
     val f = add1 _
 
-    add1(3) should be(__)
-    f(3) should be(__)
-    f.isInstanceOf[Int ⇒ Int] should be(__)
+    add1(3) should be(4)
+    f(3) should be(4)
+    f.isInstanceOf[Int ⇒ Int] should be(true)
 
     // Note: open up a REPL and observe the type of `f`
   }

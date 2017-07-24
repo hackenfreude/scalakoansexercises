@@ -14,7 +14,7 @@ class AboutRecursion extends KoanSuite {
       else x * factorial(x - 1)
     }
 
-    factorial(4) should be(__) // List(...) is how a list is created more about lists later.
+    factorial(4) should be(24) // List(...) is how a list is created more about lists later.
 
     //Note: Fire up a REPL and paste factorial(100000)!
   }
@@ -41,13 +41,13 @@ class AboutRecursion extends KoanSuite {
       fact(i, 1)
     }
 
-    factorial(4) should be(__)
+    factorial(4) should be(24)
 
     //Note: Fire up a REPL and try factorial(100000) now!
   }
 
   koan(
-    """In scala, methods can be placed inside in methods! This comes useful for
+    """In scala, methods can be placed inside in methods! This becomes useful for
       | recursion where accumulator helper methods can be placed inside the outer
       | method, or you just want to place one method in another for design reasons""") {
 
@@ -64,10 +64,10 @@ class AboutRecursion extends KoanSuite {
       fact(i, 1)
     }
 
-    factorial(0) should be(__)
-    factorial(1) should be(__)
-    factorial(2) should be(__)
-    factorial(3) should be(__)
+    factorial(0) should be(1)
+    factorial(1) should be(1)
+    factorial(2) should be(2)
+    factorial(3) should be(6)
   }
 
   koan("""The former method could of course also be written with a pattern match""") {
@@ -80,7 +80,7 @@ class AboutRecursion extends KoanSuite {
       fact(i)
     }
 
-    factorial(5) should be(__)
+    factorial(5) should be(120)
   }
 
   koan(
@@ -97,7 +97,7 @@ class AboutRecursion extends KoanSuite {
     }
 
     //Reminder fibonacci sequence: 1, 1, 2, 3, 5, 8, 13, 21
-    fibonacci(4) should be(__)
+    fibonacci(4) should be(5)
   }
 
   koan(
@@ -117,6 +117,6 @@ class AboutRecursion extends KoanSuite {
     }
 
     //Reminder fibonacci sequence: 1, 1, 2, 3, 5, 8, 13, 21
-    fibonacci(4) should be(__)
+    fibonacci(4) should be(3)
   }
 }
