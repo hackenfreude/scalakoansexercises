@@ -4,7 +4,7 @@ name := "Scala Koans"
 
 lazy val commonSettings = Seq(
   version := "1.0",
-  scalaVersion := "2.12.2",
+  scalaVersion := "2.12.6",
   scalacOptions ++= Vector(
     "-deprecation",
     "-feature",
@@ -24,7 +24,7 @@ lazy val commonSettings = Seq(
     "-Xlint:deprecation"),
   updateOptions := updateOptions.value.withCachedResolution(true))
 
-val ScalaTestVersion = "3.0.1"
+val ScalaTestVersion = "3.0.5"
 
 lazy val root = Project(
   id = "scala-koans",
@@ -49,4 +49,4 @@ lazy val macroSub = Project(
   settings(commonSettings: _*).
   settings(
     scalacOptions += "-language:experimental.macros",
-    libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-compiler" % _))
+    libraryDependencies += scalaVersion("org.scala-lang" % "scala-compiler" % _).value)
